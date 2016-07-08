@@ -1,0 +1,63 @@
+In the beginning of this class, you identified emails by their authors using a number of supervised classification algorithms. In those projects, we handled the preprocessing for you, transforming the input emails into a TfIdf so they could be fed into the algorithms. Now you will construct your own version of that preprocessing step, so that you are going directly from raw data to processed features.
+
+You will be given two text files: one contains the locations of all the emails from Sara, the other has emails from Chris. You will also have access to the parseOutText() function, which accepts an opened email as an argument and returns a string containing all the (stemmed) words in the email.
+
+
+Warming Up with parseOutText()
+
+You’ll start with a warmup exercise to get acquainted with parseOutText(). Go to the tools directory and run parse_out_email_text.py, which contains parseOutText() and a test email to run this function over.
+
+parseOutText() takes the opened email and returns only the text part, stripping away any metadata that may occur at the beginning of the email, so what's left is the text of the message. We currently have this script set up so that it will print the text of the email to the screen, what is the text that you get when you run parseOutText()?
+
+Quiz: Warming Up With ParseOutText()
+A hint when submitting: the words in the string that you get have TWO spaces between them; make sure your answer does too!
+
+Deploying Stemming
+In parseOutText(), comment out the following line: 
+
+words = text_string 
+
+Augment parseOutText() so that the string it returns has all the words stemmed using a SnowballStemmer (use the nltk package, some examples that I found helpful can be found here: http://www.nltk.org/howto/stem.html ). Rerun parse_out_email_text.py, which will use your updated parseOutText() function--what’s your output now?
+
+Hint: you'll need to break the string down into individual words, stem each word, then recombine all the words into one string.
+
+Quiz: Deploying Stemming
+
+Clean Away "Signature Words"
+
+In vectorize_text.py, you will iterate through all the emails from Chris and from Sara. For each email, feed the opened email to parseOutText() and return the stemmed text string. Then do two things:
+
+remove signature words (“sara”, “shackleton”, “chris”, “germani”--bonus points if you can figure out why it's "germani" and not "germany")
+append the updated text string to word_data -- if the email is from Sara, append 0 (zero) to from_data, or append a 1 if Chris wrote the email.
+Once this step is complete, you should have two lists: one contains the stemmed text of each email, and the second should contain the labels that encode (via a 0 or 1) who the author of that email is.
+
+Running over all the emails can take a little while (5 minutes or more), so we've added a temp_counter to cut things off after the first 200 emails. Of course, once everything is working, you'd want to run over the full dataset.
+
+In the box below, put the string that you get for word_data[152].
+
+Quiz: Clean Away "Signature Words"
+vectorize_text.py can be found in the text_learning directory
+
+TfIdf It
+Transform the word_data into a tf-idf matrix using the sklearn TfIdf transformation. Remove english stopwords.
+
+You can access the mapping between words and feature numbers using get_feature_names(), which returns a list of all the words in the vocabulary. How many different words are there?
+
+
+Quiz: TfIdf It
+Be sure to use the tf-idf Vectorizer class to transform the word data.
+
+Don't forget to remove english stop words when you set up the vectorizer.
+
+Accessing TfIdf Features
+
+What is word number 34597 in your TfIdf?
+
+(Just to be clear--if the question were "what is word number 100," we would be looking for the word corresponding to vocab_list[100]. Zero-indexed arrays are so confusing to talk about sometimes.)
+
+
+
+
+
+
+
