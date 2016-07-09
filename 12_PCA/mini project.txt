@@ -1,0 +1,41 @@
+PCA Mini-Project
+
+Our discussion of PCA spent a lot of time on theoretical issues, so in this mini-project we値l ask you to play around with some sklearn code. The eigenfaces code is interesting and rich enough to serve as the testbed for this entire mini-project.
+
+The starter code can be found in pca/eigenfaces.py. This was mostly taken from the example found here, on the sklearn documentation.
+Take note when running the code, that there are changes in one of the parameters for the SVC function called on line 94 of pca/eigenfaces.py. For the 'class_weight' parameter, the argument string "auto" is a valid value for sklearn version 0.16 and prior, but will be depreciated by 0.19. If you are running sklearn version 0.17 or later, the expected argument string should be "balanced". If you get an error or warning when running pca/eigenfaces.py, make sure that you have the correct argument on line 98 that matches your installed version of sklearn.
+
+Explained Variance of Each PC
+
+We mentioned that PCA will order the principal components, with the first PC giving the direction of maximal variance, second PC has second-largest variance, and so on. How much of the variance is explained by the first principal component? The second?
+
+Quiz: Explained Variance Of Each PC
+We found that sometimes the pillow module (which is being used in this example) can cause trouble. If you get an error related to the fetch_lfw_people() command, try the following:
+
+pip install --upgrade PILLOW
+
+If you run into a different error, note that there are changes in one of the parameters for the SVC function called on line 94 of pca/eigenfaces.py. For the 'class_weight' parameter, the argument string "auto" is a valid value for sklearn version 0.16 and prior, but will be depreciated by 0.19. If you are running sklearn version 0.17 or later, the expected argument string should be "balanced". If you get an error or warning when running pca/eigenfaces.py, make sure that you have the correct argument on line 98 that matches your installed version of sklearn.
+
+Take note when running the code, that there are changes in one of the parameters for the SVC function called on line 94 of pca/eigenfaces.py. For the 'class_weight' parameter, the argument string "auto" is a valid value for sklearn version 0.16 and prior, but will be depreciated by 0.19. If you are running sklearn version 0.17 or later, the expected argument string should be "balanced". If you get an error or warning when running pca/eigenfaces.py, make sure that you have the correct argument on line 98 that matches your installed version of sklearn.
+
+How Many PCs to Use?
+
+Now you'll experiment with keeping different numbers of principal components. In a multiclass classification problem like this one (more than 2 labels to apply), accuracy is a less-intuitive metric than in the 2-class case. Instead, a popular metric is the F1 score.
+
+We値l learn about the F1 score properly in the lesson on evaluation metrics, but you値l figure out for yourself whether a good classifier is characterized by a high or low F1 score. You値l do this by varying the number of principal components and watching how the F1 score changes in response.
+
+As you add more principal components as features for training your classifier, do you expect it to get better or worse performance?
+
+Quiz: How Many PCs To Use?
+
+F1 Score vs. No. of PCs Used
+
+Change n_components to the following values: [10, 15, 25, 50, 100, 250]. For each number of principal components, note the F1 score for Ariel Sharon. (For 10 PCs, the plotting functions in the code will break, but you should be able to see the F1 scores.) If you see a higher F1 score, does it mean the classifier is doing better, or worse?
+
+Quiz: F1 Score Vs. No. Of PCs Used
+
+Dimensionality Reduction and O
+Do you see any evidence of overfitting when using a large number of PCs? Does the dimensionality reduction of PCA seem to be helping your performance here?
+
+Quiz: Dimensionality Reduction And Overfitting
+
