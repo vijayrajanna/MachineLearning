@@ -1,0 +1,23 @@
+Validation Mini-Project
+
+In this mini-project, you’ll start from scratch in making a training-testing split in the data. This will be the first step toward your final project, of building a POI identifier.
+
+Your First (Overfit) POI Identifier
+
+You’ll start by building the simplest imaginable (unvalidated) POI identifier. The starter code (validation/validate_poi.py) for this lesson is pretty bare--all it does is read in the data, and format it into lists of labels and features. Create a decision tree classifier (just use the default parameters), train it on all the data (you will fix this in the next part!), and print out the accuracy. THIS IS AN OVERFIT TREE, DO NOT TRUST THIS NUMBER! Nonetheless, what’s the accuracy?
+
+Quiz: Your First (Overfit) POI Identifier
+From Python 3.3 forward, a change to the order in which dictionary keys are processed was made such that the orders are randomized each time the code is run. This will cause some compatibility problems with the graders and project code, which were run under Python 2.7. To correct for this, add the following argument to the featureFormat call on line 25 of validate_poi.py:
+
+sort_keys = '../tools/python2_lesson13_keys.pkl'
+
+This will open up a file in the tools folder with the Python 2 key order.
+
+Note: If you are not getting the results expected by the grader, then you may want to check the file tools/feature_format.py. Due to changes in the final project, some file changes have affected the numbers output on this assignment as written. Check that you have the most recent version of the file from the repository, such that the featureFormat has a default parameter for sort_keys = False and that keys = dictionary.keys() results.
+
+Deploying a Training/Testing Regime
+
+Now you’ll add in training and testing, so that you get a trustworthy accuracy number. Use the train_test_split validation available in sklearn.cross_validation; hold out 30% of the data for testing and set the random_state parameter to 42 (random_state controls which points go into the training set and which are used for testing; setting it to 42 means we know exactly which events are in which set, and can check the results you get). What’s your updated accuracy?
+
+Quiz: Deploying A Training/Testing Regime
+
