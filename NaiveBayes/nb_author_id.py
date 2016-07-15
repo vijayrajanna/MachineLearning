@@ -12,6 +12,8 @@
 """
     
 import sys
+from sklearn.naive_bayes import GaussianNB
+from sklearn.metrics import accuracy_score
 from time import time
 sys.path.append("../tools/")
 from email_preprocess import preprocess
@@ -22,11 +24,22 @@ from email_preprocess import preprocess
 ### labels_train and labels_test are the corresponding item labels
 features_train, features_test, labels_train, labels_test = preprocess()
 
+# Creating the object of the class.
+naive_base_classifier = GaussianNB()
+naive_base_classifier.fit(features_train,labels_train)
+list_predictedLCass = naive_base_classifier.predict(features_test)
+print 'Predicted Classes'
+print list_predictedLCass
+print 'Actual Classes'
+print labels_test
 
+print(accuracy_score(labels_test,list_predictedLCass,normalize=True))
 
 
 #########################################################
 ### your code goes here ###
+# Create classifier on the training data set.
+
 
 
 #########################################################
