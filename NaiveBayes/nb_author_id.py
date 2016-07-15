@@ -32,9 +32,8 @@ print 'Predicted Classes'
 print list_predictedLCass
 print 'Actual Classes'
 print labels_test
-
-print(accuracy_score(labels_test,list_predictedLCass,normalize=True))
-
+accuracy = '{}'.format(accuracy_score(labels_test,list_predictedLCass,normalize=True)*100) + '%'
+print accuracy
 
 #########################################################
 ### your code goes here ###
