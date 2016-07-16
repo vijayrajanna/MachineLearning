@@ -14,6 +14,7 @@ from sklearn import cross_validation
 iris = datasets.load_iris()
 features = iris.data
 labels = iris.target
+print features
 
 ###############################################################
 ### YOUR CODE HERE
