@@ -28,12 +28,12 @@ features_train, features_test, labels_train, labels_test = preprocess()
 naive_base_classifier = GaussianNB()
 naive_base_classifier.fit(features_train,labels_train)
 list_predictedLCass = naive_base_classifier.predict(features_test)
-print 'Predicted Classes'
-print list_predictedLCass
-print 'Actual Classes'
-print labels_test
+print ('Predicted Classes')
+print(list_predictedLCass)
+print ('Actual Classes')
+print (labels_test)
 accuracy = '{}'.format(accuracy_score(labels_test,list_predictedLCass,normalize=True)*100) + '%'
-print accuracy
+print(accuracy)
 
 #########################################################
 ### your code goes here ###

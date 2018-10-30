@@ -10,9 +10,9 @@ def classify(features_train, labels_train):
     clf = GaussianNB()
     clf.fit(features_train,labels_train)
     predictedClasses = clf.predict(features_train)
-    print predictedClasses
+    print (predictedClasses)
 
     # Now we need to compute the accuracy.
-    print 'The accuracy of the classification is'
-    print(accuracy_score(labels_train,predictedClasses,normalize=True))
+    print 'The accuracy of the classification with training set'
+    print accuracy_score(labels_train,predictedClasses,normalize=True)
     return clf #returning the classifier

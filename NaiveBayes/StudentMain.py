@@ -14,7 +14,7 @@ from ClassifyNB import classify
 
 import numpy as np
 import pylab as pl
-
+from sklearn.metrics import accuracy_score
 
 features_train, labels_train, features_test, labels_test = makeTerrainData()
 
@@ -26,8 +26,15 @@ bumpy_fast = [features_train[ii][1] for ii in range(0, len(features_train)) if l
 grade_slow = [features_train[ii][0] for ii in range(0, len(features_train)) if labels_train[ii]==1]
 bumpy_slow = [features_train[ii][1] for ii in range(0, len(features_train)) if labels_train[ii]==1]
 
+# Testing with training set
 clf = classify(features_train, labels_train)
-
 ### draw the decision boundary with the text points overlaid
 prettyPicture(clf, features_test, labels_test)
 output_image("test.png", "png", open("test.png", "rb").read())
+
+# Testing with test set
+predictedClasses = clf.predict(features_test)
+# Now we need to compute the accuracy.
+print 'The accuracy of the classification with test set'
+print accuracy_score(labels_test,predictedClasses,normalize=True)
+
