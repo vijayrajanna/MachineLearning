@@ -40,5 +40,10 @@ from sklearn.metrics import accuracy_score
 acc = accuracy_score(pred, labels_test)
 print acc
 
+from sklearn.metrics import f1_score
+
+print 'F measure'
+print f1_score(labels_test,pred)
+
 def submitAccuracy():
     return acc

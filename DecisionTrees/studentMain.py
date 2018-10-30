@@ -25,6 +25,11 @@ predictedClasses = clf.predict(features_test)
 print 'The accuracy of the classification is'
 print(accuracy_score(labels_test,predictedClasses,normalize=True))
 
+from sklearn.metrics import f1_score
+
+print 'F measure'
+print f1_score(labels_test,predictedClasses)
+
 #### grader code, do not modify below this line
 
 prettyPicture(clf, features_test, labels_test)
